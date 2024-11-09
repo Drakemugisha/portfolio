@@ -1,3 +1,10 @@
+
+:root{
+    --maincolor: rgb(16, 133, 172);
+    --secondarycolor: rgb(255, 255, 255);
+    --highlighcolor: #333;
+}
+
 *{
     font-size: 16px;
 }
@@ -7,6 +14,9 @@ body{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+}
+.lightmode{
+    background-color: var(--maincolor);
 }
 
 nav{
@@ -24,13 +34,18 @@ nav .nav-list{
     border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 6px;
 }
-.nav-list a, #about-btn, #home-btn{
+.nav-list a{
     text-decoration: none;
     background-color: rgba(255, 255, 255, 0.2);
     color: #fff;
-    padding: 10px 20px;
+    padding: 5px 5px;
     border-radius: 6px;
     cursor: pointer;
+    transition: 0.5s ease;
+}
+
+.nav-list a:hover{
+    background-color: transparent;
 }
 .nav-list .list-item{
     list-style: none;
@@ -39,7 +54,7 @@ nav .nav-list{
     position: relative;
     appearance: none;
     height: 38px;
-    width: 100px;
+    width: 80px;
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 30px;
     outline: none;
@@ -55,10 +70,14 @@ nav .nav-list{
     left: 5px;
     border-radius: 50%;
     transform: translateY(-50%);
-    transition: 1.5s;
+    transition: 0.5s;
 }
+.lightmode  .something::after{
+    background-color: var(--secondarycolor);
+}
+
 .list-item .something:checked:after{
-    left: 60%;
+    left: 50%;
 }
 
 /* slide menu */
@@ -80,6 +99,9 @@ nav .nav-list{
     background-color: rgb(14, 14, 17);
     transition: left 0.3s ease;
     z-index: 1000;
+}
+.lightmode .slide-menu{
+    background-color: var(--maincolor);
 }
 
 .slide-menu.active {
@@ -147,6 +169,10 @@ nav .nav-list{
     transition: 1.5s;
     box-shadow: -15px 15px 15px #000;
 }
+.lightmode  .hero .something::after{
+    background-color: var(--secondarycolor);
+}
+
 .hero .something:checked:after{
     left: 50%;
     content: "ABOUT";
@@ -154,6 +180,7 @@ nav .nav-list{
 }
 .hero .something:checked{
     transform: rotate(45deg);
+    background: url(images/drake.jpg);
 }
 .hero .content{
     display: flex;
@@ -173,6 +200,10 @@ h2{
     margin-bottom: 0;
     color: aquamarine;
 }
+.lightmode  .hero .content h5{
+    color: var(--highlighcolor);
+}
+
 .hero .content .column-content{
     display: flex;
     align-items: center;
@@ -185,6 +216,10 @@ h2{
 span{
     color: aquamarine;
 }
+.lightmode span{
+    color: var(--highlighcolor);
+}
+
 /* socials */
 
 .socials{
@@ -200,25 +235,32 @@ span{
 .socials a i{
    color: aquamarine;
    transition: .5s;
+   padding: 5px;
+}
+.lightmode .socials a i{
+    color: var(--secondarycolor);
 }
 .socials a i:hover{
     color: rgba(255, 255, 255, 0.5);
-    font-size: 55px;
+    transform: perspective(1000px) rotate(-30deg) skew(25deg) translate(10PX, 10PX);
+    box-shadow: -20px 20px 10px  aquamarine;
+}
+.lightmode .socials a i:hover{
+    box-shadow: -20px 20px 10px  var(--secondarycolor);
 }
 /* skills */
-.skills{
+.skill-container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+#skills{
+    border: 3px solid rgb(255, 255, 255, 0.2);
+    border-radius: 6px;
+    padding: 20px;
+    margin-left: 20px;
     margin: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 50vh;
-}
-.skills-words{
-    width: 50%;
-    text-align: center;
-}
-.skills-show{
-    flex-grow: 1;
 }
 
 .html, .css, .javascript, .react, .git, .python, .bootstrap, .mySQL, .Django, .php{
@@ -230,7 +272,6 @@ span{
     border-radius: 8px;
     background-color: rgb(255, 255, 255, 0.2);
     backdrop-filter: blur(50px);
-    margin-top: 5px;
 }
 .line{
     display: flex;
@@ -242,6 +283,19 @@ span{
     border-radius: 8px;
     background-color: rgb(255, 255, 255, 0.4); 
 }
+
+.line.animate{
+    animation: fillBar 2s ease;
+}
+@keyframes fillBar {
+    0%{
+        width: 0%;
+    }
+    70%{
+        width: var(--d);}
+
+}
+
 /* projects */
 .projects{
     margin: 50px;
@@ -254,6 +308,9 @@ span{
     border-radius: 8px;
     padding: 10px;
     margin: 10px;
+}
+.project:has(.title:checked){
+    border: 2px solid rgb(255, 255, 255, 0.4);
 }
 .title{
     display: flex;
@@ -269,6 +326,7 @@ span{
     transition: 1.5s;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 10px;
 }
 
 .title::after{
@@ -283,6 +341,9 @@ span{
     transform: translateY(-50%);
     transition: 1.5s;
 }
+.lightmode .title::after{
+    background-color: var(--secondarycolor);
+}
 .title:checked:after{
     left: 80%;
 }
@@ -293,6 +354,17 @@ span{
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+}
+.project button{
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    padding: 10px;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+.project button:hover{
+    background-color: transparent;
 }
 .project-container{
     display: flex;
@@ -309,7 +381,8 @@ span{
     display: flex
 }
 .project img{
-    width: 70%;
+    width: 50%;
+    clip-path: circle();
 }
 
 /* contact */
@@ -340,9 +413,29 @@ form button{
     background-color: aquamarine;
     font-size: 1.2rem;
 }
+.lightmode form button{
+    background-color: var(--secondarycolor);
+}
+/* footer */
 
+footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #333;
+    margin-top: 20px;
+}
+footer ul a{
+    text-decoration: none;
+}
+footer ul li:hover{
+    border-bottom: 2px solid #fff;
+}
+.socialMedia i{
+    color: #fff;
+    margin-left: 10px;
+}
 /* responsiveness */
-
 @media (max-width: 992px){
     .hero .something{
         height: 17rem;
@@ -360,14 +453,26 @@ form button{
 @media (max-width: 840px){
     .hero{
         flex-direction: column-reverse;
-        height: 40vh;
+        height: 60vh;
+    }
+
+    h2{
+        font-size: 2rem;
+    }
+    .hero .something{
+        height: 12rem;
+        width: 20rem;
+        transform: rotate(0deg);
+    }
+    .hero .something::after{
+        height: 9rem;
+        width: 9rem;
+        font-size: 2rem;
     }
     .hero:has(.something:checked){
         flex-direction: column;
     }
-    .hero .something{
-        transform: rotate(0deg);
-    }
+
     .hero .something:checked{
         transform: rotate(0deg);
     }
@@ -380,24 +485,15 @@ form button{
     .socials{
         gap: 20px;
     }
-}
-@media (max-width: 840px) and (max-height: 1350px){
-    .hero{
-        height: 60vh;
+    
+    .skill-container {
+        grid-template-columns: 1fr;
     }
 }
+
 @media (max-width: 572px) {
     .hero{
         height: 80vh;
-    }
-    .hero .something{
-        height: 12rem;
-        width: 20rem;
-    }
-    .hero .something::after{
-        height: 9rem;
-        width: 9rem;
-        font-size: 2rem;
     }
     .project-container{
         flex-direction: column;
@@ -409,3 +505,4 @@ form button{
         font-size: 14px;
     }
 }
+
