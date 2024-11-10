@@ -3,14 +3,15 @@
     --maincolor: rgb(16, 133, 172);
     --secondarycolor: rgb(255, 255, 255);
     --highlighcolor: #333;
+    --bordercolor: rgba(255, 255, 255, 0.4);
 }
 
 *{
     font-size: 16px;
 }
 body{
-    background-color: rgb(14, 14, 17);
-    color: #fff;
+    background-color: var(--highlighcolor);
+    color: var(--secondarycolor);
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -31,13 +32,13 @@ nav .nav-list{
     align-items: center;
     padding: 5px;
     gap: 20px;
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    border: 2px solid var(--bordercolor);
     border-radius: 6px;
 }
 .nav-list a{
     text-decoration: none;
-    background-color: rgba(255, 255, 255, 0.2);
-    color: #fff;
+    background-color: var(--bordercolor);
+    color: var(--secondarycolor);
     padding: 5px 5px;
     border-radius: 6px;
     cursor: pointer;
@@ -55,7 +56,7 @@ nav .nav-list{
     appearance: none;
     height: 38px;
     width: 80px;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: var(--bordercolor);
     border-radius: 30px;
     outline: none;
     cursor: pointer;
@@ -65,7 +66,7 @@ nav .nav-list{
     position: absolute;
     height: 30px;
     width: 35px;
-    background-color: rgb(194, 240, 194);
+    background-color: var(--maincolor);
     top: 50%;
     left: 5px;
     border-radius: 50%;
@@ -82,8 +83,8 @@ nav .nav-list{
 
 /* slide menu */
 #menu-toggle {
-    background-color: rgba(255, 255, 255, 0.2);
-    color: #fff;
+    background-color: var(--bordercolor);
+    color: var(--secondarycolor);
     padding: 10px;
     border: none;
     cursor: pointer;
@@ -96,7 +97,7 @@ nav .nav-list{
     left: -50%; /* Hidden off-screen */
     width: 50%;
     height: 100vh;
-    background-color: rgb(14, 14, 17);
+    background-color: var(--highlighcolor);
     transition: left 0.3s ease;
     z-index: 1000;
 }
@@ -118,14 +119,14 @@ nav .nav-list{
 }
 
 .menu-list a, li{
-    color: #fff;
+    color: var(--secondarycolor);
     text-decoration: none;
     display: block;
     padding: 10px 5px;
     cursor: pointer;
 }
 .menu-list li:hover{
-    border-bottom: #fff double;
+    border-bottom: var(--secondarycolor) double;
 }
 
 /* hero */
@@ -142,8 +143,8 @@ nav .nav-list{
     appearance: none;
     height: 20rem;
     width: 35rem;
-    background-color: rgba(255, 255, 255, 0.2);
-    border: 10px solid rgb(255, 255, 255, 0.2);
+    background-color: var(--bordercolor);
+    border: 10px solid var(--bordercolor);
     box-shadow: inset 4px 4px 4px #000;
     border-radius: 10rem;
     outline: none;
@@ -161,7 +162,7 @@ nav .nav-list{
     font-family: Georgia, 'Times New Roman', Times, serif;
     height: 15rem;
     width: 15rem;
-    background-color: rgb(194, 240, 194);
+    background-color: var(--maincolor);
     top: 50%;
     left: 25px;
     border-radius: 50%;
@@ -188,9 +189,6 @@ nav .nav-list{
     align-items: start;
     justify-content: space-between;
 }
-.hero .content.before{
-    display: none;
-}
 h2{
     font-size: 4rem;
     margin-top: 0;
@@ -198,7 +196,7 @@ h2{
 .hero .content h5{
     font-size: 1.5rem;
     margin-bottom: 0;
-    color: aquamarine;
+    color: var(--maincolor);
 }
 .lightmode  .hero .content h5{
     color: var(--highlighcolor);
@@ -214,7 +212,7 @@ h2{
     display: none;
 }
 span{
-    color: aquamarine;
+    color: var(--maincolor);
 }
 .lightmode span{
     color: var(--highlighcolor);
@@ -228,12 +226,12 @@ span{
     justify-content: center;
     height: 30vh;
     gap: 100px;
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    border: 2px solid var(--bordercolor);
     margin: 50px;
     border-radius: 40px;
 }
 .socials a i{
-   color: aquamarine;
+   color: var(--maincolor);
    transition: .5s;
    padding: 5px;
 }
@@ -241,9 +239,9 @@ span{
     color: var(--secondarycolor);
 }
 .socials a i:hover{
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--bordercolor);
     transform: perspective(1000px) rotate(-30deg) skew(25deg) translate(10PX, 10PX);
-    box-shadow: -20px 20px 10px  aquamarine;
+    box-shadow: -20px 20px 10px  var(--maincolor);
 }
 .lightmode .socials a i:hover{
     box-shadow: -20px 20px 10px  var(--secondarycolor);
@@ -256,7 +254,7 @@ span{
 }
 
 #skills{
-    border: 3px solid rgb(255, 255, 255, 0.2);
+    border: 3px solid var(--bordercolor);
     border-radius: 6px;
     padding: 20px;
     margin-left: 20px;
@@ -281,7 +279,7 @@ span{
     height: 20px;
     width: var(--d);
     border-radius: 8px;
-    background-color: rgb(255, 255, 255, 0.4); 
+    background-color: var(--bordercolor); 
 }
 
 .line.animate{
@@ -310,7 +308,7 @@ span{
     margin: 10px;
 }
 .project:has(.title:checked){
-    border: 2px solid rgb(255, 255, 255, 0.4);
+    border: 2px solid var(--bordercolor)
 }
 .title{
     display: flex;
@@ -320,7 +318,7 @@ span{
     appearance: none;
     height: 40px;
     width: 200px;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: var(--bordercolor);
     border-radius: 20px;
     outline: none;
     transition: 1.5s;
@@ -334,7 +332,7 @@ span{
     position: absolute;
     height: 35px;
     width: 35px;
-    background-color: rgb(194, 240, 194);
+    background-color: var(--maincolor);
     top: 50%;
     left: 5px;
     border-radius: 50%;
@@ -356,8 +354,8 @@ span{
     justify-content: space-between;
 }
 .project button{
-    background-color: rgba(255, 255, 255, 0.2);
-    color: #fff;
+    background-color: var(--bordercolor);
+    color: var(--secondarycolor);
     padding: 10px;
     border-radius: 16px;
     cursor: pointer;
@@ -397,7 +395,7 @@ form{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 2px solid rgb(255, 255, 255, 0.4);
+    border: 2px solid var(--bordercolor);
     padding: 20px;
     border-radius: 16px;
     font-size: 2rem;
@@ -410,7 +408,7 @@ input, textarea{
 form button{
     padding: 5px 10px;
     border-radius: 16px;
-    background-color: aquamarine;
+    background-color: var(--maincolor);
     font-size: 1.2rem;
 }
 .lightmode form button{
@@ -422,17 +420,18 @@ footer{
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #333;
+    background-color: var(--highlighcolor);
     margin-top: 20px;
+    border-top: 2px solid var(--bordercolor);
 }
 footer ul a{
     text-decoration: none;
 }
 footer ul li:hover{
-    border-bottom: 2px solid #fff;
+    border-bottom: 2px solid var(--secondarycolor);
 }
 .socialMedia i{
-    color: #fff;
+    color: var(--secondarycolor);
     margin-left: 10px;
 }
 /* responsiveness */
